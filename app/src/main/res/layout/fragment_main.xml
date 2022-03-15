@@ -14,6 +14,7 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/textview_border"
                 android:layout_height="200dp"
                 android:orientation="vertical">
@@ -43,7 +44,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="武汉" />
+                        android:text="重庆" />
 
                 <ImageView
                         android:layout_width="20dp"
@@ -92,18 +93,19 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PM2.5"
-                    android:gravity="center"
-                    android:textSize="14sp"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="41" />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PM2.5"
+                        android:gravity="center"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="41" />
             </LinearLayout>
 
 
@@ -134,6 +136,7 @@
                 android:background="@drawable/textview_border"
                 android:layout_height="100dp"
                 android:orientation="vertical"
+                android:id="@+id/linear_navigation"
                 android:gravity="center"
                 android:layout_weight="1">
 
@@ -154,6 +157,7 @@
                 android:background="@drawable/textview_border"
                 android:layout_height="100dp"
                 android:orientation="vertical"
+                android:id="@+id/linear_ask_help"
                 android:gravity="center"
                 android:layout_weight="1">
 
@@ -218,12 +222,14 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <ImageView
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
+            android:id="@+id/iv_record"
             android:background="@drawable/record_bg"
             android:scaleType="fitCenter"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/record"/>
+            android:src="@drawable/record" />
 </LinearLayout>

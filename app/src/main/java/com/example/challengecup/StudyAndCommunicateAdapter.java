@@ -1,6 +1,10 @@
 package com.example.challengecup;
 
+import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +21,7 @@ public class StudyAndCommunicateAdapter extends RecyclerView.Adapter<RecyclerVie
     private Context context;
 
 
-    public StudyAndCommunicateAdapter(List<Functions> functions,Context context) {
+    public StudyAndCommunicateAdapter(List<Functions> functions, Context context) {
         super();
         this.functions = functions;
         this.context = context;
@@ -31,8 +35,79 @@ public class StudyAndCommunicateAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ((ItemHolder) holder).itemText.setText(functions.get(position).getFuncName());
+        switch (functions.get(position).getFuncName()) {
+            case "滴滴打车":
+                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, TaxiActivity.class);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case "直播电台":
+            case "有声读物":
+            case "盲人教育":
+            case "盲人电影":
+                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, SoundAndEducationActivity.class);
+                        intent.putExtra("title", functions.get(position).getFuncName());
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case "亲人1":
+            case "亲人2":
+            case "朋友1":
+            case "朋友2":
+                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_CALL);
+                        Uri data = Uri.parse("tel:" + "17623223423");
+                        intent.setData(data);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case "QQ":
+            case "QQ视频":
+                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent =new Intent();
+                        ComponentName cmp =new ComponentName("com.tencent.mobileqq", "com.tencent.mobileqq.activity.SplashActivity");
+                        intent.setAction(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setComponent(cmp);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case "微信聊天":
+            case "微信视频":
+                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        ComponentName cmp = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                        intent.setAction(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setComponent(cmp);
+                        context.startActivity(intent);
+
+                    }
+                });
+                break;
+
+
+        }
         ((ItemHolder) holder).itemImg.setImageResource(functions.get(position).getFuncIconSource());
     }
 
