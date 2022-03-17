@@ -110,6 +110,9 @@ public class StudyAndCommunicateAdapter extends RecyclerView.Adapter<RecyclerVie
         }
         ((ItemHolder) holder).itemImg.setImageResource(functions.get(position).getFuncIconSource());
     }
+    private void totianmao( String tbPath){
+
+    }
 
     @Override
     public int getItemCount() {

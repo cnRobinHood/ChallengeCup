@@ -17,6 +17,7 @@ public class MainFragment extends Fragment {
     private ImageView recordImageView;
     private LinearLayout navigationLinearLayout;
     private LinearLayout askHelpLinearLayout;
+    private LinearLayout taobaoLinearLayout;
 
     public static MainFragment newInstance(Bundle bundle) {
         MainFragment fragment = new MainFragment();
@@ -69,6 +70,17 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),AskForHelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        taobaoLinearLayout = view.findViewById(R.id.linear_taobao);
+        taobaoLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction("Android.intent.action.VIEW");
+                intent.setClassName("com.taobao.taobao", "com.taobao.tao.detail.activity.DetailActivity");
                 startActivity(intent);
             }
         });
