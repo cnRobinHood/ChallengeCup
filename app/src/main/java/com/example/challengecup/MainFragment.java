@@ -2,6 +2,8 @@ package com.example.challengecup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +16,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
 public class MainFragment extends Fragment {
+    private static final String TAG = "MainFragment";
     private ImageView recordImageView;
     private LinearLayout navigationLinearLayout;
     private LinearLayout askHelpLinearLayout;
     private LinearLayout taxiLinearLayout;
+    private LinearLayout cameraLinearLayout;
 
     public static MainFragment newInstance(Bundle bundle) {
         MainFragment fragment = new MainFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
+
     @NonNull
     @Override
     public Lifecycle getLifecycle() {
@@ -60,16 +65,28 @@ public class MainFragment extends Fragment {
         navigationLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),NavigationActivity.class);
+                Intent intent = new Intent(getActivity(), NavigationActivity.class);
                 startActivity(intent);
             }
         });
 
-        navigationLinearLayout = view.findViewById(R.id.linear_ask_help);
-        navigationLinearLayout.setOnClickListener(new View.OnClickListener() {
+        //相机设置点击事件
+        cameraLinearLayout = view.findViewById(R.id.linear_camera);
+        cameraLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),AskForHelpActivity.class);
+                Log.d(TAG, "onClick: ");
+                Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//用来打开相机的Intent
+                startActivity(takePhotoIntent);//启动相机
+
+            }
+        });
+
+        askHelpLinearLayout = view.findViewById(R.id.linear_ask_help);
+        askHelpLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AskForHelpActivity.class);
                 startActivity(intent);
             }
         });

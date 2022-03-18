@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkReadPermission(Manifest.permission.CALL_PHONE, REQUEST_CALL_PERMISSION);
+        checkReadPermission(Manifest.permission.CAMERA, REQUEST_CALL_PERMISSION);
         studyFunctions = new ArrayList<>();
         communicateFunctions = new ArrayList<>();
         initStudyFunctions(studyFunctions);
@@ -80,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return flag;
     }
+
+
+
 
     /**
      * 检查权限后的回调

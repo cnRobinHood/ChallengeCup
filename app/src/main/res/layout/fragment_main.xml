@@ -186,7 +186,7 @@
                 android:layout_height="100dp"
                 android:orientation="vertical"
                 android:gravity="center"
-
+                android:id="@+id/linear_camera"
                 android:layout_weight="1">
 
             <ImageView
