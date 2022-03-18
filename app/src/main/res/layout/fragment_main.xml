@@ -207,18 +207,18 @@
                 android:layout_height="100dp"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:id="@+id/linear_taobao"
+                android:id="@+id/linear_taxi"
                 android:layout_weight="1">
 
             <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/taobao" />
+                    android:src="@drawable/taxi" />
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="淘宝" />
+                    android:text="打车" />
 
         </LinearLayout>
 

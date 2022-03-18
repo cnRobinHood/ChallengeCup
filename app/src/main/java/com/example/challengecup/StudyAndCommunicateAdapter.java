@@ -38,15 +38,6 @@ public class StudyAndCommunicateAdapter extends RecyclerView.Adapter<RecyclerVie
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ((ItemHolder) holder).itemText.setText(functions.get(position).getFuncName());
         switch (functions.get(position).getFuncName()) {
-            case "滴滴打车":
-                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(context, TaxiActivity.class);
-                        context.startActivity(intent);
-                    }
-                });
-                break;
             case "直播电台":
             case "有声读物":
             case "盲人教育":
@@ -105,7 +96,18 @@ public class StudyAndCommunicateAdapter extends RecyclerView.Adapter<RecyclerVie
                     }
                 });
                 break;
+            case "淘宝":
+                ((ItemHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        intent.setAction("Android.intent.action.VIEW");
+                        intent.setClassName("com.taobao.taobao", "com.taobao.tao.welcome.Welcome");
+                        context.startActivity(intent);
+                    }
+                });
 
+                break;
 
         }
         ((ItemHolder) holder).itemImg.setImageResource(functions.get(position).getFuncIconSource());

@@ -17,7 +17,7 @@ public class MainFragment extends Fragment {
     private ImageView recordImageView;
     private LinearLayout navigationLinearLayout;
     private LinearLayout askHelpLinearLayout;
-    private LinearLayout taobaoLinearLayout;
+    private LinearLayout taxiLinearLayout;
 
     public static MainFragment newInstance(Bundle bundle) {
         MainFragment fragment = new MainFragment();
@@ -74,14 +74,12 @@ public class MainFragment extends Fragment {
             }
         });
 
-        taobaoLinearLayout = view.findViewById(R.id.linear_taobao);
-        taobaoLinearLayout.setOnClickListener(new View.OnClickListener() {
+        taxiLinearLayout = view.findViewById(R.id.linear_taxi);
+        taxiLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setAction("Android.intent.action.VIEW");
-                intent.setClassName("com.taobao.taobao", "com.taobao.tao.detail.activity.DetailActivity");
-                startActivity(intent);
+                Intent intent = new Intent(getActivity(), TaxiActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 

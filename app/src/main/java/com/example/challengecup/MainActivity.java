@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initStudyFunctions(List<Functions> list) {
-        String[] studyFuncTitle = new String[]{"设置", "滴滴打车", "闹钟", "检测心率", "直播电台", "有声读物", "盲人教育", "盲人电影"};
-        int[] studyFuncIconSource = new int[]{R.drawable.setting, R.drawable.taxi, R.drawable.alarm,
+        String[] studyFuncTitle = new String[]{"设置", "淘宝", "闹钟", "检测心率", "直播电台", "有声读物", "盲人教育", "盲人电影"};
+        int[] studyFuncIconSource = new int[]{R.drawable.setting, R.drawable.taobao, R.drawable.alarm,
                 R.drawable.heartrate, R.drawable.station, R.drawable.book, R.drawable.education, R.drawable.film};
         for (int i = 0; i < studyFuncTitle.length; i++) {
             list.add(new Functions(studyFuncTitle[i], studyFuncIconSource[i]));
